@@ -1,5 +1,6 @@
 
 #include<stdio.h>
+#include<string.h>
 typedef struct student{
 				int roll;
 				char name[20];
@@ -20,16 +21,20 @@ void printf_stu(stu *s){
 
 		}}
 
-void search_roll(stu *s, int num){
+void search_roll(stu *s){
+int num;
+scanf("%d",&num);
   for(int i=0;i<5;i++){
   	if(s[i].roll==num){
 	printf(" Roll number %d, name %s, marks %f", s[i].roll,s[i].name,s[i].marks);
 	}
 }
 }
-void search_name(stu *s, char *name1){
+void search_name(stu *s){
+char name1[5];
+scanf("%s",name1);
 for(int i=0;i<5;i++){
-if(strcmp(s[i].name==name1)==0){
+if(strcmp(s[i].name,name1)==0){
 	printf(" Roll number %d, name %s, marks %f", s[i].roll,s[i].name,s[i].marks);
 }
 printf("value at %d",*name1);
@@ -41,14 +46,13 @@ printf("value at %d",*name1);
 
 int main(){
 stu s[5];
-int num;
-char name1[20];
+
 accept_stu(s);
 printf_stu(s);
 printf("\nEnter the roll number:\n");
-scanf("%d",&num);
-scanf("%s", name1);
-search_roll(s,num);
-search_name(s,name1);
+
+
+search_roll(s);
+search_name(s);
 return 0;
 }
